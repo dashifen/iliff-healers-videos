@@ -12,7 +12,6 @@
  */
 
 use Dashifen\IliffHealersVideos\IliffHealersVideos;
-use Dashifen\IliffHealersVideos\Agents\FieldGroupAgent;
 use Dashifen\WPHandler\Agents\Collection\Factory\AgentCollectionFactory;
 use Dashifen\WPHandler\Handlers\HandlerException;
 
@@ -25,9 +24,6 @@ require_once $autoloader;
 (function() {
     try {
         $videos = new IliffHealersVideos();
-        $agentFactory = new AgentCollectionFactory();
-        $agentFactory->registerAgent(FieldGroupAgent::class);
-        $videos->setAgentCollection($agentFactory);
         $videos->initialize();
     } catch (HandlerException $e) {
         wp_die($e->getMessage());

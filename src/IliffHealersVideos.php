@@ -19,7 +19,9 @@ class IliffHealersVideos extends AbstractPluginHandler
     public function initialize(): void
     {
         if (!$this->isInitialized()) {
-            $this->addAction('init', 'registerPostType');
+            $this->addAction('init', 'registerPostType', 8);
+            $this->addAction('init', 'registerTaxonomy', 9);
+            $this->addFilter('template_include', 'locateVideoTemplate');
         }
     }
     
@@ -69,7 +71,7 @@ class IliffHealersVideos extends AbstractPluginHandler
             'labels'              => $labels,
             'description'         => $singular . 's within the Iliff+Healers Initiative',
             'supports'            => ['title', 'editor', 'thumbnail', 'revisions'],
-            'menu_icon'           => 'dashicons-format-' . $singular,
+            'menu_icon'           => 'dashicons-video-alt',
             'has_archive'         => $singular . 's',
             'capability_type'     => 'page',
             'exclude_from_search' => false,
@@ -85,6 +87,98 @@ class IliffHealersVideos extends AbstractPluginHandler
             'menu_position'       => 5,
         ];
         
-        register_post_type($singular, $args);
+        register_post_type('illif-video', $args);
+    }
+    
+    /**
+     * registerTaxonomy
+     *
+     * Registers the topic taxonomy.
+     *
+     * @return void
+     */
+    protected function registerTaxonomy(): void
+    {
+        $plural = 'Topics';
+        $singular = 'Topic';
+        
+        $labels = [
+            'name'                       => $plural,
+            'singular_name'              => $singular,
+            'menu_name'                  => $plural,
+            'all_items'                  => 'All ' . $plural,
+            'parent_item'                => 'Parent ' . $singular,
+            'parent_item_colon'          => 'Parent ' . $singular . ':',
+            'new_item_name'              => 'New ' . $singular . ' Name',
+            'add_new_item'               => 'Add New ' . $singular,
+            'edit_item'                  => 'Edit ' . $singular,
+            'update_item'                => 'Update ' . $singular,
+            'view_item'                  => 'View ' . $singular,
+            'separate_items_with_commas' => 'Separate ' . $plural . ' with commas',
+            'add_or_remove_items'        => 'Add or remove ' . $plural . '',
+            'choose_from_most_used'      => 'Choose from the most used ' . $plural,
+            'popular_items'              => 'Popular ' . $plural,
+            'search_items'               => 'Search ' . $plural,
+            'not_found'                  => 'Not Found',
+            'no_terms'                   => 'No ' . $plural,
+            'items_list'                 => $plural . ' list',
+            'items_list_navigation'      => $plural . ' list navigation',
+        ];
+        
+        $args = [
+            'labels'            => $labels,
+            'show_tagcloud'     => false,
+            'hierarchical'      => false,
+            'public'            => true,
+            'show_ui'           => true,
+            'show_admin_column' => true,
+            'show_in_nav_menus' => true,
+            'show_in_rest'      => true,
+        ];
+        
+        register_taxonomy('iliff-video-topic', ['video'], $args);
+    }
+    
+    /**
+     * locateVideoTemplate
+     *
+     * When WP core identifies that we need to load up a template for the
+     * post type or taxonomy in this plugin, this method takes over and returns
+     * the correct file.
+     *
+     * @param string $template
+     *
+     * @return string
+     */
+    protected function locateVideoTemplate(string $template): string
+    {
+        // first, we'll identify the three situations in which we want to mess
+        // with our template.  in each of these (tiny) blocks, we define the
+        // $filename variable.  if none of these cases are true, then we return
+        // the original template and we're done.
+        
+        if (is_post_type_archive('iliff-video')) {
+            $filename = 'archive-iliff-video.php';
+        } elseif (is_singular('iliff-video')) {
+            $filename = 'single-iliff-video.php';
+        } elseif (is_tax('iliff-video-topix')) {
+            $filename = 'taxonomy-iliff-video-topic.php';
+        } else {
+            return $template;
+        }
+        
+        // if we didn't return in the else-block, then we must be have a file
+        // to locate.  if locate_template can find us a template file of the
+        // appropriate name in our theme (it probably won't) then we use it.
+        // but, since it probably won't, we'll return a path to the deafult
+        // plugin file thereafter.
+    
+        $template = locate_template($filename);
+        
+        if ($template === '') {
+            $template = trailingslashit($this->getPluginDir()) . 'templates/' . $filename;
+        }
+        
+        return $template;
     }
 }

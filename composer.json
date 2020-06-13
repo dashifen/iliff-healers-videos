@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "\\Dashifen\\IliffHealersVideos\\": "src"
+            "Dashifen\\IliffHealersVideos\\": "src"
         }
     },
     "config": {

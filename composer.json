@@ -1,0 +1,29 @@
+{
+    "name": "dashifen/iliff-healers-videos",
+    "description": "A custom post type and associated support for the Iliff+Healers Initiative videos.",
+    "minimum-stability": "stable",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Dashifen Kees",
+            "email": "dashifen@dashifen.com",
+            "role": "developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "\\Dashifen\\IliffHealersVideos\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "require": {
+        "php": ">=7.4",
+        "dashifen/acf-agent": "^1.1",
+        "dashifen/wp-handler": "^9.6",
+        "dashifen/wp-templates": "^3.2"
+    }
+}

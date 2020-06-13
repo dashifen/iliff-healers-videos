@@ -19,11 +19,31 @@ class IliffHealersVideos extends AbstractPluginHandler
     public function initialize(): void
     {
         if (!$this->isInitialized()) {
+            $this->registerActivationHook('activate');
             $this->addAction('init', 'registerPostType', 8);
             $this->addAction('init', 'registerTaxonomy', 9);
-            $this->addFilter('template_include', 'locateVideoTemplate');
+            
+            if (self::isDebug()) {
+                flush_rewrite_rules();
+            }
+            
         }
     }
+    
+    /**
+     * activate
+     *
+     * Fired when the plugin is activated.
+     *
+     * @return void
+     */
+    protected function activate(): void
+    {
+        $this->registerPostType();
+        $this->registerTaxonomy();
+        flush_rewrite_rules();
+    }
+    
     
     /**
      * registerPostType
@@ -72,10 +92,10 @@ class IliffHealersVideos extends AbstractPluginHandler
             'description'         => $singular . 's within the Iliff+Healers Initiative',
             'supports'            => ['title', 'editor', 'thumbnail', 'revisions'],
             'menu_icon'           => 'dashicons-video-alt',
-            'has_archive'         => $singular . 's',
             'capability_type'     => 'page',
             'exclude_from_search' => false,
             'hierarchical'        => false,
+            'has_archive'         => true,
             'public'              => true,
             'show_ui'             => true,
             'show_in_menu'        => true,
@@ -85,6 +105,9 @@ class IliffHealersVideos extends AbstractPluginHandler
             'publicly_queryable'  => true,
             'show_in_rest'        => true,
             'menu_position'       => 5,
+            'rewrite'             => [
+                'slug' => 'videos',
+            ],
         ];
         
         register_post_type('illif-video', $args);
@@ -136,7 +159,7 @@ class IliffHealersVideos extends AbstractPluginHandler
             'show_in_rest'      => true,
         ];
         
-        register_taxonomy('iliff-video-topic', ['video'], $args);
+        register_taxonomy('iliff-video-topic', ['illif-video'], $args);
     }
     
     /**
@@ -172,7 +195,7 @@ class IliffHealersVideos extends AbstractPluginHandler
         // appropriate name in our theme (it probably won't) then we use it.
         // but, since it probably won't, we'll return a path to the deafult
         // plugin file thereafter.
-    
+        
         $template = locate_template($filename);
         
         if ($template === '') {

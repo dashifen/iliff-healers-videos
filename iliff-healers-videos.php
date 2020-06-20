@@ -12,7 +12,6 @@
  */
 
 use Dashifen\IliffHealersVideos\IliffHealersVideos;
-use Dashifen\WPHandler\Agents\Collection\Factory\AgentCollectionFactory;
 use Dashifen\WPHandler\Handlers\HandlerException;
 
 if (file_exists($autoloader = dirname(ABSPATH) . '/deps/vendor/autoload.php'));

@@ -90,7 +90,7 @@ class IliffHealersVideos extends AbstractPluginHandler
             'label'               => $singular,
             'labels'              => $labels,
             'description'         => $singular . 's within the Iliff+Healers Initiative',
-            'supports'            => ['title', 'editor', 'thumbnail', 'revisions'],
+            'supports'            => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions'],
             'menu_icon'           => 'dashicons-video-alt',
             'capability_type'     => 'page',
             'exclude_from_search' => false,
@@ -110,7 +110,7 @@ class IliffHealersVideos extends AbstractPluginHandler
             ],
         ];
         
-        register_post_type('illif-video', $args);
+        register_post_type('iliff-video', $args);
     }
     
     /**
@@ -159,7 +159,7 @@ class IliffHealersVideos extends AbstractPluginHandler
             'show_in_rest'      => true,
         ];
         
-        register_taxonomy('iliff-video-topic', ['illif-video'], $args);
+        register_taxonomy('iliff-video-topic', ['iliff-video'], $args);
     }
     
     /**

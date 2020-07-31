@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "214b7b4d7e87568c2c36f817a4fd30f6",
+    "content-hash": "af932cdd33d4fa80f3862d5490b07a55",
     "packages": [
         {
             "name": "dashifen/acf-agent",
@@ -121,22 +121,22 @@
         },
         {
             "name": "dashifen/repository",
-            "version": "2.0.4",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dashifen/repository.git",
-                "reference": "2d3e0d1b9b96908c0aeed3a730123bd26eb9f344"
+                "reference": "83ce68039cc5c0cae1c35c3da80d9d3e23b57d37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dashifen/repository/zipball/2d3e0d1b9b96908c0aeed3a730123bd26eb9f344",
-                "reference": "2d3e0d1b9b96908c0aeed3a730123bd26eb9f344",
+                "url": "https://api.github.com/repos/dashifen/repository/zipball/83ce68039cc5c0cae1c35c3da80d9d3e23b57d37",
+                "reference": "83ce68039cc5c0cae1c35c3da80d9d3e23b57d37",
                 "shasum": ""
             },
             "require": {
                 "dashifen/exception": "^1",
                 "ext-json": "*",
-                "php": ">=7.3"
+                "php": ">=7.4"
             },
             "type": "library",
             "autoload": {
@@ -156,7 +156,7 @@
                 }
             ],
             "description": "An object with read-only protected properties from which other objects can be extened.",
-            "time": "2020-01-24T18:43:36+00:00"
+            "time": "2020-07-29T15:21:59+00:00"
         },
         {
             "name": "dashifen/transformer",
@@ -198,22 +198,22 @@
         },
         {
             "name": "dashifen/wp-handler",
-            "version": "10.0.0",
+            "version": "10.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dashifen/wp-handler.git",
-                "reference": "24a45677779a920b35bd1baa26fc9a37bc454df4"
+                "reference": "c05f0d378c3d39261a39a3357a80449f6ab5b29d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dashifen/wp-handler/zipball/24a45677779a920b35bd1baa26fc9a37bc454df4",
-                "reference": "24a45677779a920b35bd1baa26fc9a37bc454df4",
+                "url": "https://api.github.com/repos/dashifen/wp-handler/zipball/c05f0d378c3d39261a39a3357a80449f6ab5b29d",
+                "reference": "c05f0d378c3d39261a39a3357a80449f6ab5b29d",
                 "shasum": ""
             },
             "require": {
                 "dashifen/collection": "^2",
                 "dashifen/exception": "^1",
-                "dashifen/repository": "^2",
+                "dashifen/repository": "^3",
                 "dashifen/transformer": "^2",
                 "php": ">=7.4"
             },
@@ -235,25 +235,25 @@
                 }
             ],
             "description": "An object to define handlers for various WordPress action and filter hooks using protected methods. ",
-            "time": "2020-07-29T15:18:10+00:00"
+            "time": "2020-07-30T14:21:57+00:00"
         },
         {
             "name": "dashifen/wp-templates",
-            "version": "3.2.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dashifen/wp-templates.git",
-                "reference": "99e876e87153fe0d45f7dcebaa0acc94985f1f2a"
+                "reference": "a2a7c63303e44b699d47b46697f35a0bce0058d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dashifen/wp-templates/zipball/99e876e87153fe0d45f7dcebaa0acc94985f1f2a",
-                "reference": "99e876e87153fe0d45f7dcebaa0acc94985f1f2a",
+                "url": "https://api.github.com/repos/dashifen/wp-templates/zipball/a2a7c63303e44b699d47b46697f35a0bce0058d1",
+                "reference": "a2a7c63303e44b699d47b46697f35a0bce0058d1",
                 "shasum": ""
             },
             "require": {
-                "dashifen/repository": "^2",
-                "php": ">=7.3"
+                "dashifen/repository": "^3",
+                "php": ">=7.4"
             },
             "type": "project",
             "autoload": {
@@ -273,7 +273,7 @@
                 }
             ],
             "description": "A series of objects that encapsulate behaviors for WordPress templates.",
-            "time": "2020-02-16T16:32:33+00:00"
+            "time": "2020-07-31T17:25:58+00:00"
         }
     ],
     "packages-dev": [],

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c989fd07df3ef973200968fb8e74f41",
+    "content-hash": "1b36ec919389c0267a5cf319417910ab",
     "packages": [
         {
             "name": "dashifen/acf-agent",
@@ -385,49 +385,6 @@
                 "source": "https://github.com/dashifen/wp-handler/tree/10.10.0"
             },
             "time": "2021-09-28T19:25:08+00:00"
-        },
-        {
-            "name": "dashifen/wp-templates",
-            "version": "5.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dashifen/wp-templates.git",
-                "reference": "e31adb91c6050b578bb9578d6651894b9a05832a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dashifen/wp-templates/zipball/e31adb91c6050b578bb9578d6651894b9a05832a",
-                "reference": "e31adb91c6050b578bb9578d6651894b9a05832a",
-                "shasum": ""
-            },
-            "require": {
-                "dashifen/repository": "^3",
-                "dashifen/wp-debugging": "^1.0",
-                "php": ">=7.4"
-            },
-            "type": "project",
-            "autoload": {
-                "psr-4": {
-                    "Dashifen\\WPTemplates\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Dashifen Kees",
-                    "email": "dashifen@dashifen.com",
-                    "role": "developer"
-                }
-            ],
-            "description": "A series of objects that encapsulate behaviors for WordPress templates.",
-            "support": {
-                "issues": "https://github.com/dashifen/wp-templates/issues",
-                "source": "https://github.com/dashifen/wp-templates/tree/5.1.2"
-            },
-            "time": "2021-10-27T21:11:46+00:00"
         }
     ],
     "packages-dev": [],
